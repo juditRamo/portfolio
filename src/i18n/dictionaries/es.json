@@ -1,0 +1,160 @@
+{
+  "nav": {
+    "about": "Sobre mí",
+    "experience": "Experiencia",
+    "projects": "Proyectos",
+    "techStack": "Tecnologías",
+    "education": "Formación",
+    "contact": "Contacto"
+  },
+  "hero": {
+    "greeting": "Hola, soy",
+    "name": "Judit Ramo Solé",
+    "title": "Ingeniera de Software Full-Stack",
+    "subtitle": "Más de 4 años construyendo aplicaciones SaaS en entornos startup. Especializada en React, TypeScript y Java Spring.",
+    "cta": "Contactar"
+  },
+  "about": {
+    "title": "Sobre Mí",
+    "description": [
+      "Soy Ingeniera Informática por la Universitat de Barcelona con pasión por construir productos que resuelvan problemas reales. Durante los últimos 4+ años, he trabajado en entornos startup donde he sido responsable de funcionalidades de principio a fin — desde la definición del producto hasta el despliegue.",
+      "Fundé Firas, una plataforma SaaS para empresas de construcción, donde diseñé y construí todo, desde la arquitectura backend multi-tenant hasta el frontend. Me encanta trabajar en la intersección entre producto e ingeniería.",
+      "Actualmente explorando el desarrollo asistido por IA con Cursor.ai y Claude Code, siempre buscando formas de ampliar lo posible."
+    ],
+    "stats": [
+      { "label": "Años de experiencia", "value": "4+" },
+      { "label": "Empresas", "value": "4" },
+      { "label": "Idiomas", "value": "3" }
+    ]
+  },
+  "experience": {
+    "title": "Experiencia",
+    "items": [
+      {
+        "company": "Firas",
+        "role": "Fundadora & Full Stack Developer",
+        "period": "2023 — 2026",
+        "duration": "2+ años",
+        "description": "Desarrollé una plataforma SaaS completa para que empresas de construcción gestionen las finanzas y la rentabilidad de sus proyectos.",
+        "highlights": [
+          "Diseñé y desarrollé la plataforma de principio a fin (React, Next.js, Java Spring, MongoDB, Vercel)",
+          "Implementé una arquitectura multi-tenant segura con esquema compartido",
+          "Construí sistema de autenticación y autorización con Spring Security y JWT",
+          "Definí el roadmap de producto a través de entrevistas directas con empresas de construcción",
+          "Diseñé la infraestructura y los flujos de despliegue"
+        ],
+        "tech": ["React", "Next.js", "Java Spring", "MongoDB", "Vercel", "JWT"]
+      },
+      {
+        "company": "Harmonix",
+        "role": "Frontend React Developer",
+        "period": "2025",
+        "duration": "6 meses",
+        "description": "SaaS de gestión de ventas con IA. Trabajé como desarrolladora frontend externa.",
+        "highlights": [
+          "Diseñé e implementé un nuevo sistema de dashboard para la aplicación web",
+          "Construí componentes UI reutilizables con React, TypeScript, Tailwind CSS y Chart.js",
+          "Entregué funcionalidades completamente integradas con las APIs backend y especificaciones de producto",
+          "Aseguré una UI responsive y de alto rendimiento en todos los dispositivos"
+        ],
+        "tech": ["React", "TypeScript", "Tailwind CSS", "Chart.js"]
+      },
+      {
+        "company": "Bloobirds",
+        "role": "Full Stack Developer",
+        "period": "2022 — 2023",
+        "duration": "1 año 2 meses",
+        "description": "Startup SaaS de CRM y gestión de ventas. Miembro del equipo de Features.",
+        "highlights": [
+          "Desarrollé y lancé nuevas funcionalidades en un entorno SaaS en producción",
+          "Refactoricé módulos frontend legacy, mejorando la mantenibilidad y consistencia del código",
+          "Colaboré con equipos de Producto y Customer Success para traducir requisitos de negocio en soluciones técnicas",
+          "Contribuí a mejoras en el onboarding y flujos de trabajo del usuario"
+        ],
+        "tech": ["React", "TypeScript", "Java Spring"]
+      },
+      {
+        "company": "Avanade",
+        "role": "Frontend Development Intern",
+        "period": "2020",
+        "duration": "6 meses",
+        "description": "Proyecto de consultoría para un cliente bancario. Colaboré con equipos de UX e innovación para entregar funcionalidades frontend.",
+        "highlights": [
+          "Entregué funcionalidades production-ready usando Angular y C#",
+          "Trabajé en un entorno de consultoría orientado al cliente"
+        ],
+        "tech": ["Angular", "C#", "TypeScript"]
+      }
+    ]
+  },
+  "projects": {
+    "title": "Proyectos",
+    "items": [
+      {
+        "title": "Firas",
+        "description": "Plataforma SaaS para empresas de construcción para gestionar finanzas, presupuestos y rentabilidad de proyectos. Aplicación full-stack con arquitectura multi-tenant, autenticación JWT y un frontend moderno en React.",
+        "tech": ["React", "Next.js", "Java Spring", "MongoDB", "Spring Security", "Vercel"],
+        "liveUrl": "",
+        "repoUrl": ""
+      },
+      {
+        "title": "Harmonix Dashboard",
+        "description": "Diseñé y construí un sistema completo de dashboards para una plataforma de gestión de ventas con IA. Visualizaciones de datos interactivas, librería de componentes reutilizables y layouts responsive.",
+        "tech": ["React", "TypeScript", "Tailwind CSS", "Chart.js", "REST API"],
+        "liveUrl": "",
+        "repoUrl": ""
+      },
+      {
+        "title": "Portfolio Website",
+        "description": "¡Esta misma web! Un portfolio moderno y responsive construido con Next.js y TypeScript. Incluye modo oscuro/claro, soporte multiidioma y animaciones suaves de scroll.",
+        "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
+        "liveUrl": "",
+        "repoUrl": "https://github.com/juditramo/portfolio"
+      }
+    ]
+  },
+  "techStack": {
+    "title": "Tecnologías",
+    "categories": [
+      {
+        "name": "Principal",
+        "items": ["React.js", "TypeScript", "Java Spring", "Spring Security"]
+      },
+      {
+        "name": "Frontend",
+        "items": ["Next.js", "JavaScript", "HTML / CSS", "Tailwind CSS", "Storybook", "Chart.js", "Angular", "Vue.js"]
+      },
+      {
+        "name": "Backend",
+        "items": ["REST API", "JWT Auth", "Multi-tenancy", "Websockets", "Supabase", "Firebase", "SQL / NoSQL", "Docker"]
+      },
+      {
+        "name": "Otros",
+        "items": ["CI / CD", "Git", "Bash", "Python", "Kotlin", "Monorepo"]
+      }
+    ]
+  },
+  "education": {
+    "title": "Formación",
+    "items": [
+      {
+        "institution": "Universitat de Barcelona",
+        "degree": "Ingeniería Informática",
+        "period": "2017 — 2022",
+        "description": "Diseño de Software, Estructuras de Datos, Aplicaciones Web y Móviles, Software Distribuido y Redes."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Trabajemos Juntos",
+    "subtitle": "Siempre estoy abierta a nuevas oportunidades, colaboraciones o simplemente una buena conversación sobre tecnología. ¡No dudes en contactarme!",
+    "emailLabel": "Envíame un email",
+    "email": "juditramosole@gmail.com",
+    "phone": "+34 686 617 118",
+    "linkedin": "https://www.linkedin.com/in/juditramo/",
+    "linkedinLabel": "Conectar en LinkedIn"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados."
+  }
+}
