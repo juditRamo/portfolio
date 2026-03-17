@@ -2,7 +2,7 @@ export function AmbientBackground() {
   return (
     <div
       aria-hidden
-      className="fixed inset-0 -z-10 pointer-events-none overflow-hidden"
+      className="fixed inset-x-0 top-0 min-h-lvh -z-10 pointer-events-none overflow-hidden"
     >
       {/* Top-left violet */}
       <div className="absolute top-[5%] -left-1/4 w-[600px] h-[600px] rounded-full bg-accent-violet/20 blur-[120px]" />
