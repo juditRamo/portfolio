@@ -27,7 +27,7 @@ export function Contact({ dict }: ContactProps) {
             {/* Email button */}
             <a
               href={`mailto:${dict.email}`}
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-accent-violet via-accent-pink to-accent-cyan shadow-lg shadow-accent-violet/25 hover:shadow-accent-violet/40 hover:scale-105 transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-accent-violet to-accent-pink shadow-lg shadow-accent-violet/25 hover:shadow-accent-violet/40 hover:scale-105 transition-all"
             >
               <HiEnvelope className="w-5 h-5" />
               {dict.emailLabel}

@@ -63,7 +63,7 @@ export function Hero({ dict }: HeroProps) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={scrollToContact}
-          className="px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-accent-violet via-accent-pink to-accent-cyan shadow-lg shadow-accent-violet/25 hover:shadow-accent-violet/40 transition-shadow"
+          className="px-8 py-4 rounded-full font-semibold text-white bg-gradient-to-r from-accent-violet to-accent-pink shadow-lg shadow-accent-violet/25 hover:shadow-accent-violet/40 transition-shadow"
         >
           {dict.cta}
         </motion.button>
