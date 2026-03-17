@@ -94,7 +94,7 @@
         "title": "Firas",
         "description": "A SaaS platform for construction companies to manage project finances, budgets, and profitability. Full-stack application with multi-tenant architecture, JWT authentication, and a modern React frontend.",
         "tech": ["React", "Next.js", "Java Spring", "MongoDB", "Spring Security", "Vercel"],
-        "liveUrl": "",
+        "liveUrl": "https://app.firas.es",
         "repoUrl": ""
       },
       {
@@ -108,8 +108,15 @@
         "title": "Portfolio Website",
         "description": "This very website! A modern, responsive portfolio built with Next.js and TypeScript. Features dark/light mode, multi-language support, and smooth scroll animations.",
         "tech": ["Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"],
-        "liveUrl": "",
+        "liveUrl": "https://juditramo.vercel.app/",
         "repoUrl": "https://github.com/juditramo/portfolio"
+      },
+      {
+        "title": "WheresIt",
+        "description": "A home organization app built around a nested location system, allowing items to be stored, moved, and tracked within places inside places. Designed to make finding everyday objects simple and reliable.",
+        "tech": ["React", "TypeScript", "Supabase", "Vite", "Claude Code"],
+        "liveUrl": "https://wheres-it.vercel.app/",
+        "repoUrl": ""
       }
     ]
   },

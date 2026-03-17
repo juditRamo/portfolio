@@ -19,7 +19,7 @@ export function Education({ dict }: EducationProps) {
 
         {dict.items.map((item, i) => (
           <AnimatedSection key={i} delay={0.1}>
-            <div className="gradient-border bg-card rounded-2xl p-8 flex gap-6 items-start">
+            <div className="gradient-border glass rounded-2xl p-8 flex gap-6 items-start">
               <div className="shrink-0 w-14 h-14 rounded-2xl bg-gradient-to-br from-accent-violet to-accent-pink flex items-center justify-center">
                 <HiAcademicCap className="w-7 h-7 text-white" />
               </div>

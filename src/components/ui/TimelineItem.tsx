@@ -22,7 +22,7 @@ export function TimelineItem({ item, index }: TimelineItemProps) {
       <div className="absolute left-0 top-1 w-4 h-4 rounded-full bg-gradient-to-br from-accent-violet to-accent-pink border-4 border-background z-10" />
 
       {/* Content card */}
-      <div className="gradient-border bg-card rounded-2xl p-6 hover:shadow-lg hover:shadow-accent-violet/5 transition-all duration-300">
+      <div className="gradient-border glass rounded-2xl p-6 hover:shadow-lg hover:shadow-accent-violet/5 transition-all duration-300">
         <div className="flex flex-wrap items-center gap-3 mb-3">
           <h3 className="text-xl font-bold text-foreground">{item.company}</h3>
           <span className="px-3 py-1 rounded-full text-xs font-semibold bg-accent-pink/10 text-accent-pink">

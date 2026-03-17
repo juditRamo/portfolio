@@ -17,15 +17,16 @@ const CARD_WIDTH_DESKTOP = 480;
 const CARD_PADDING_MOBILE = 48; // 24px each side
 
 export function Projects({ dict }: ProjectsProps) {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const items = dict.items;
+  const count = items.length;
+  const displayItems = [...items, ...items, ...items];
+
+  const [currentIndex, setCurrentIndex] = useState(count); // start at middle copy
   const [cardWidth, setCardWidth] = useState(CARD_WIDTH_DESKTOP);
   const x = useMotionValue(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const scrollCooldown = useRef(false);
-
-  const items = dict.items;
-  const maxIndex = items.length - 1;
 
   // Update card width on resize
   useEffect(() => {
@@ -49,15 +50,27 @@ export function Projects({ dict }: ProjectsProps) {
 
   const snapTo = useCallback(
     (index: number) => {
-      const clamped = Math.max(0, Math.min(index, maxIndex));
-      setCurrentIndex(clamped);
-      animate(x, getTargetX(clamped), {
+      setCurrentIndex(index);
+      animate(x, getTargetX(index), {
         type: "spring",
         stiffness: 300,
         damping: 30,
+        onComplete: () => {
+          // If outside middle copy, silently jump to equivalent in middle
+          let reset = index;
+          if (index < count) {
+            reset = index + count;
+          } else if (index >= count * 2) {
+            reset = index - count;
+          }
+          if (reset !== index) {
+            x.jump(getTargetX(reset));
+            setCurrentIndex(reset);
+          }
+        },
       });
     },
-    [maxIndex, x, getTargetX]
+    [count, x, getTargetX]
   );
 
   const handleDragEnd = useCallback(
@@ -126,21 +139,19 @@ export function Projects({ dict }: ProjectsProps) {
     return () => el.removeEventListener("wheel", handleWheel);
   }, [handleWheel]);
 
-  // Center first card on mount (and when cardWidth updates)
+  // Center on middle copy on mount (and when cardWidth updates)
   useEffect(() => {
-    x.set(getTargetX(0));
-  }, [cardWidth, getTargetX, x]);
+    x.set(getTargetX(count));
+  }, [cardWidth, count, getTargetX, x]);
 
   // Re-snap on resize
   useEffect(() => {
     function handleResize() {
-      const clamped = Math.min(currentIndex, maxIndex);
-      if (clamped !== currentIndex) setCurrentIndex(clamped);
-      animate(x, getTargetX(clamped), { duration: 0 });
+      animate(x, getTargetX(currentIndex), { duration: 0 });
     }
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [currentIndex, maxIndex, x, getTargetX]);
+  }, [currentIndex, x, getTargetX]);
 
   return (
     <section id="projects" className="py-24">
@@ -164,9 +175,7 @@ export function Projects({ dict }: ProjectsProps) {
         {/* Prev button */}
         <button
           onClick={() => snapTo(currentIndex - 1)}
-          className={`absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex w-12 h-12 rounded-full bg-card/80 backdrop-blur-sm border border-card-border items-center justify-center text-foreground/70 hover:text-accent-violet hover:border-accent-violet/30 transition-all ${
-            currentIndex <= 0 ? "opacity-0 pointer-events-none" : "opacity-100"
-          }`}
+          className="absolute left-4 lg:left-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex w-12 h-12 rounded-full bg-card/80 backdrop-blur-sm border border-card-border items-center justify-center text-foreground/70 hover:text-accent-violet hover:border-accent-violet/30 transition-all"
           aria-label="Previous project"
         >
           <HiChevronLeft className="w-6 h-6" />
@@ -175,11 +184,7 @@ export function Projects({ dict }: ProjectsProps) {
         {/* Next button */}
         <button
           onClick={() => snapTo(currentIndex + 1)}
-          className={`absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex w-12 h-12 rounded-full bg-card/80 backdrop-blur-sm border border-card-border items-center justify-center text-foreground/70 hover:text-accent-violet hover:border-accent-violet/30 transition-all ${
-            currentIndex >= maxIndex
-              ? "opacity-0 pointer-events-none"
-              : "opacity-100"
-          }`}
+          className="absolute right-4 lg:right-8 top-1/2 -translate-y-1/2 z-20 hidden md:flex w-12 h-12 rounded-full bg-card/80 backdrop-blur-sm border border-card-border items-center justify-center text-foreground/70 hover:text-accent-violet hover:border-accent-violet/30 transition-all"
           aria-label="Next project"
         >
           <HiChevronRight className="w-6 h-6" />
@@ -190,11 +195,7 @@ export function Projects({ dict }: ProjectsProps) {
           className="flex"
           style={{ x, gap: CARD_GAP }}
           drag="x"
-          dragConstraints={{
-            left: getTargetX(maxIndex),
-            right: getTargetX(0),
-          }}
-          dragElastic={0.1}
+          dragElastic={0.15}
           dragMomentum={false}
           onDragStart={() => { isDragging.current = true; }}
           onDragEnd={(_, info) => {
@@ -202,11 +203,11 @@ export function Projects({ dict }: ProjectsProps) {
             requestAnimationFrame(() => { isDragging.current = false; });
           }}
         >
-          {items.map((item, i) => {
+          {displayItems.map((item, i) => {
             const distance = Math.abs(i - currentIndex);
             return (
               <motion.div
-                key={item.title}
+                key={`${item.title}-${i}`}
                 className={`shrink-0 ${i !== currentIndex ? "cursor-pointer" : ""}`}
                 style={{ width: cardWidth }}
                 onClick={() => {
@@ -229,9 +230,9 @@ export function Projects({ dict }: ProjectsProps) {
           {items.map((_, i) => (
             <button
               key={i}
-              onClick={() => snapTo(i)}
+              onClick={() => snapTo(count + i)}
               className={`h-2 rounded-full transition-all duration-300 ${
-                i === currentIndex
+                i === currentIndex % count
                   ? "w-6 bg-accent-violet"
                   : "w-2 bg-foreground/20 hover:bg-foreground/40"
               }`}

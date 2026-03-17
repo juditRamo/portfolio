@@ -10,7 +10,7 @@ interface ProjectCardProps {
 export function ProjectCard({ item, isActive = false }: ProjectCardProps) {
   return (
     <div
-      className={`group gradient-border bg-card rounded-2xl hover:shadow-xl hover:shadow-accent-violet/10 transition-all duration-300 flex flex-col h-full ${
+      className={`group gradient-border glass rounded-2xl hover:shadow-xl hover:shadow-accent-violet/10 transition-all duration-300 flex flex-col h-full ${
         isActive ? "shadow-lg shadow-accent-violet/5" : ""
       }`}
     >

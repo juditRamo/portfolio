@@ -38,7 +38,7 @@ export function Contact({ dict }: ContactProps) {
               href={dict.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold gradient-border bg-card text-foreground hover:scale-105 transition-all"
+              className="inline-flex items-center gap-3 px-8 py-4 rounded-full font-semibold gradient-border glass text-foreground hover:scale-105 transition-all"
             >
               <FaLinkedinIn className="w-5 h-5 text-accent-violet" />
               {dict.linkedinLabel}

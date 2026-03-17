@@ -19,13 +19,6 @@ export function Hero({ dict }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Mesh gradient background */}
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full bg-accent-violet/20 blur-[120px]" />
-        <div className="absolute top-1/3 right-0 w-[500px] h-[500px] rounded-full bg-accent-pink/20 blur-[120px]" />
-        <div className="absolute bottom-0 left-1/3 w-[400px] h-[400px] rounded-full bg-accent-cyan/15 blur-[120px]" />
-      </div>
-
       <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center pt-20">
         <motion.p
           initial={{ opacity: 0, y: 20 }}

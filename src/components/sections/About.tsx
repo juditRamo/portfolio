@@ -27,7 +27,7 @@ export function About({ dict }: AboutProps) {
         <AnimatedSection delay={0.2}>
           <div className="grid grid-cols-3 gap-6">
             {dict.stats.map((stat, i) => (
-              <div key={i} className="text-center gradient-border bg-card rounded-2xl p-6">
+              <div key={i} className="text-center gradient-border glass rounded-2xl p-6">
                 <div className="text-3xl md:text-4xl font-bold gradient-text mb-2">
                   {stat.value}
                 </div>

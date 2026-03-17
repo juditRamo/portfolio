@@ -6,7 +6,7 @@ interface FooterProps {
 
 export function Footer({ dict }: FooterProps) {
   return (
-    <footer className="relative border-t border-card-border">
+    <footer className="relative glass border-t border-card-border">
       {/* Gradient top border */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent-violet to-transparent" />
 

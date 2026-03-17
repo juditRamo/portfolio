@@ -10,6 +10,7 @@ import { Projects } from "@/components/sections/Projects";
 import { TechStack } from "@/components/sections/TechStack";
 import { Education } from "@/components/sections/Education";
 import { Contact } from "@/components/sections/Contact";
+import { AmbientBackground } from "@/components/ui/AmbientBackground";
 
 export function generateStaticParams() {
   return locales.map((locale) => ({ locale }));
@@ -27,6 +28,7 @@ export default async function HomePage({
   return (
     <>
       <Navbar locale={locale} dict={dict} />
+      <AmbientBackground />
       <main>
         <Hero dict={dict.hero} />
         <About dict={dict.about} />
