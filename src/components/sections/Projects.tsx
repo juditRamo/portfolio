@@ -27,6 +27,7 @@ export function Projects({ dict }: ProjectsProps) {
   const carouselRef = useRef<HTMLDivElement>(null);
   const isDragging = useRef(false);
   const scrollCooldown = useRef(false);
+  const isResetting = useRef(false);
 
   // Update card width on resize
   useEffect(() => {
@@ -64,6 +65,7 @@ export function Projects({ dict }: ProjectsProps) {
             reset = index - count;
           }
           if (reset !== index) {
+            isResetting.current = true;
             x.jump(getTargetX(reset));
             setCurrentIndex(reset);
           }
@@ -153,6 +155,13 @@ export function Projects({ dict }: ProjectsProps) {
     return () => window.removeEventListener("resize", handleResize);
   }, [currentIndex, x, getTargetX]);
 
+  // Clear resetting flag after render so subsequent interactions use spring transitions
+  useEffect(() => {
+    if (isResetting.current) {
+      isResetting.current = false;
+    }
+  });
+
   return (
     <section id="projects" className="py-24">
       {/* Heading: stays constrained */}
@@ -217,7 +226,7 @@ export function Projects({ dict }: ProjectsProps) {
                   scale: distance === 0 ? 1 : 0.85,
                   opacity: distance === 0 ? 1 : distance === 1 ? 0.5 : 0.3,
                 }}
-                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                transition={isResetting.current ? { duration: 0 } : { type: "spring", stiffness: 300, damping: 30 }}
               >
                 <ProjectCard item={item} isActive={distance === 0} />
               </motion.div>
